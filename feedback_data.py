@@ -5,7 +5,7 @@ feedback_data = {
         "recommendation": "Replace missing block and inspect for structural stability.",
         "priority": "Medium"
     },
-    "crack on ashpat": {
+    "Crack on ashpat": {
         "score": 4,
         "severity": "High",
         "recommendation": "Seal the crack and monitor for propagation.",
