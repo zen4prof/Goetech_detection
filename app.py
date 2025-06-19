@@ -7,18 +7,29 @@ import random
 
 # Assuming feedback_data.py is in the same directory for deployment
 try:
-    # Add the directory of the current script to the Python path
-    # This helps in finding feedback_data.py when running the Streamlit app
-    import sys
-    current_dir = os.path.dirname(__file__)
-    if current_dir not in sys.path:
-        sys.path.append(current_dir)
+    fault_recommendations = {}
+    # Construct the correct path to feedback_data.py relative to the app.py location
+    feedback_file_path = os.path.join(os.path.dirname(__file__), 'feedback_data.py')
 
-    from feedback_data import fault_recommendations
-except ImportError:
-    st.error("Error loading feedback data. Make sure feedback_data.py is in the same directory.")
-    fault_recommendations = {} # Provide an empty dict as fallback
+    # Add a check to print the path and existence
+    st.write(f"Looking for feedback data at: {feedback_file_path}")
+    if not os.path.exists(feedback_file_path):
+        st.error(f"Error: feedback_data.py not found at the expected path: {feedback_file_path}")
+        fault_recommendations = {} # Provide an empty dict as fallback
+    else:
+        st.write(f"Found feedback_data.py at: {feedback_file_path}")
+        with open(feedback_file_path, 'r') as f:
+            # Execute the script and store its globals in the fault_recommendations dictionary
+            # This assumes feedback_data.py defines a dictionary named fault_recommendations
+            exec(f.read(), {}, fault_recommendations)
+        # Extract the fault_recommendations dictionary if it exists in the executed script's globals
+        fault_recommendations = fault_recommendations.get('fault_recommendations', {})
+        if not fault_recommendations:
+             st.error("Error: 'fault_recommendations' dictionary not found or is empty in feedback_data.py.")
+
+
 except Exception as e:
+    # Display an error if there's an issue loading the feedback data
     st.error(f"An unexpected error occurred loading feedback data: {e}")
     fault_recommendations = {}
 
