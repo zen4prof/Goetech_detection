@@ -1,47 +1,47 @@
-fault_recommendations = {
-    "Block loss": {
+feedback_data = {
+    "block loss": {
         "score": 3,
         "severity": "Moderate",
         "recommendation": "Replace missing block and inspect for structural stability.",
         "priority": "Medium"
     },
-    "Crack on Ashpat": {
+    "crack on ashpat": {
         "score": 4,
         "severity": "High",
         "recommendation": "Seal the crack and monitor for propagation.",
         "priority": "High"
     },
-    "Long Crack": {
+    "long crack": {
         "score": 4,
         "severity": "High",
         "recommendation": "Conduct full surface inspection and apply structural reinforcement.",
         "priority": "High"
     },
-    "Opening on the wall": {
+    "opening on the wall": {
         "score": 5,
         "severity": "Critical",
         "recommendation": "Seal the gap immediately and assess wall integrity.",
         "priority": "Urgent"
     },
-    "Vegetation on Wall": {
+    "vegetation on wall": {
         "score": 2,
         "severity": "Low",
         "recommendation": "Remove vegetation and inspect surface for root damage.",
         "priority": "Low"
     },
-    "Vegetation on slope": {
+    "vegetation on slope": {
         "score": 2,
         "severity": "Low",
         "recommendation": "Trim vegetation and verify slope drainage capacity.",
         "priority": "Low"
     },
-    "Vertical Crack": {
+    "vertical crack": {
         "score": 4,
         "severity": "High",
         "recommendation": "Inject crack filler and monitor movement.",
         "priority": "High"
     },
-    "Wall deformation": {
+    "wall deformation": {
         "score": 5,
         "severity": "Critical",
         "recommendation": "Structural engineer assessment and reinforcement needed.",
